@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Atualizar Usuário</title>
+        <link rel="stylesheet" href="templates/css/estilo.css">
+    </head>
+    <body>
+	<h1>Atualizar Usuário</h1>
+	<form action="#" 
+	  th:action="@{/update/{id}(id=${user.id})}" 
+	  th:object="${user}" 
+	  method="post">
+	    <label for="name">Nome</label>
+	    <input type="text" th:field="*{nome}" id="nome" placeholder="Nome" required>
+	    <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+	    <br>
+		<label for="email">Email</label>
+	    <input type="email" th:field="*{email}" id="email" placeholder="Email" required>
+	    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+	    <input type="submit" value="Update User">   
+	</form>
+    </body>
+</html>
